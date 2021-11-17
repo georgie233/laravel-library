@@ -1,6 +1,6 @@
 {
-  "name": "georgie/arr",
-  "description": "数组增强组件主要是对数组等数据进行处理，如无限级分类操作、商品规格的迪卡尔乘积运算等",
+  "name": "georgie/laravel-library",
+  "description": "laravel个人常用函数集合 包含时间、文件、http、ip、字符串、无限级分类操作、商品规格的迪卡尔乘积运算等",
   "keywords": [
     "georgie",
     "array",
