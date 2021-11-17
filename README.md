@@ -275,8 +275,8 @@ TimerHelper::getTime();
 TimerHelper::getUDate();
 //计算时间差  type: time(时间戳) day hour minute
 TimerHelper::getTimeDifference($end_time, $start_time,$type='time');
-//计算时间差 返回字符串  n年n月n天n小时n分钟
-TimerHelper::getTimeDifferenceStr($end_time,$start_time,$type="YmdHis");
+//计算时间差 返回字符串  n天n小时n分钟
+TimerHelper::getTimeDifferenceStr($end_time,$start_time,$type="dHis");
 //将指定日期转换为时间戳
 TimerHelper::dateToTimestamp($date);
 //获取某个时间多少分钟之后的时间 
