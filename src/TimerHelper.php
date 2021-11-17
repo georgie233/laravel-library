@@ -71,7 +71,7 @@ class TimerHelper
      * @param string $type
      * @return false|array
      */
-    public static function getTimeDifferenceArr($end_time, $start_time, $type = "YmdHis")
+    public static function getTimeDifferenceStr($end_time, $start_time, $type = "dHis")
     {
         $strtoDateOne = strtotime($end_time);
         $strtoDateTwo = strtotime($start_time);
@@ -90,9 +90,7 @@ class TimerHelper
         $arr[2] = explode(" ", $arr[2])[0];
         $arr2[0] = explode(" ", $arr2[0])[1];
 
-        $str = self::numAddChar($arr[0], '年', substr_count(strtolower($type), 'y'))
-            . self::numAddChar($arr[1], '月', substr_count(strtolower($type), 'm'))
-            . self::numAddChar($arr[2], '天', substr_count(strtolower($type), 'd'));
+        $str = self::numAddChar(floor(($strtoDateOne - $strtoDateTwo) / 86400), '天', substr_count(strtolower($type), 'd'));
         $str2 = self::numAddChar($arr2[0], '小时', substr_count(strtolower($type), 'h'))
             . self::numAddChar($arr2[1], '分钟', substr_count(strtolower($type), 'i'))
             . self::numAddChar($arr2[2], '秒', substr_count(strtolower($type), 's'));
