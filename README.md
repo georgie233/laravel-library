@@ -22,6 +22,9 @@ ArrayHelper::map($array, $from, $to, $group = null);
 
 //检查数组是否是列索引
 ArrayHelper::isAssoc($array);
+
+//对象数组根据某个字段进行去重复
+ArrayHelper::toRepeat($arr,'user_id');
 ```
 
 ## 数组增强
