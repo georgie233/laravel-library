@@ -133,7 +133,7 @@ class ArrayHelper
             $key = $lastKey;
         }
 
-        if (is_array($array) && (isset($array[$key]) || array_key_exists($key, $array)) ) {
+        if (is_array($array) && (isset($array[$key]) || array_key_exists($key, $array))) {
             return $array[$key];
         }
 
@@ -278,7 +278,7 @@ class ArrayHelper
                 $value = static::getValue($element, $key);
                 if ($value !== null) {
                     if (is_float($value)) {
-                        $value = (string) $value;
+                        $value = (string)$value;
                     }
                     $lastArray[$value] = $element;
                 }
@@ -356,14 +356,27 @@ class ArrayHelper
      * array("1" => 'a', "0" => 'b', "2" => 'c') //true
      * array("a" => 'a', "b" => 'b', "c" => 'c') //true
      * ```
-     * @link https://stackoverflow.com/questions/173400
      * @return bool
+     * @link https://stackoverflow.com/questions/173400
      */
     public static function isAssoc(array $arr)
     {
-        if(!$arr){
+        if (!$arr) {
             return false;
         }
         return array_keys($arr) !== range(0, count($arr) - 1);
+    }
+
+    public static function toRepeat(array $arr, $index)
+    {
+        $tmp = [];
+        $t = [];
+        foreach ($arr as $item) {
+            if (!isset($t[$item[$index]])) {
+                $tmp[] = $item;
+                $t[$item[$index]] = true;
+            }
+        }
+        return $tmp;
     }
 }
