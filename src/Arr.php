@@ -218,12 +218,12 @@ class Arr
         if (count($data) == 0) {
             return collect();
         }
-        $arr = $this->channelList($data, 0, '', $fieldPri, $fieldPid);
+        $arr = $this->channelList($data, 0, '', $fieldPri, $fieldPid,$html_str = '&nbsp;&nbsp;&nbsp;&nbsp;');
         foreach ($arr as $k => $v) {
             $str = "";
             if ($v['_level'] > 2) {
                 for ($i = 1; $i < $v['_level'] - 1; $i++) {
-                    $str .= "│&nbsp;&nbsp;&nbsp;&nbsp;";
+                    $str .= "│".$html_str;
                 }
             }
             if ($v['_level'] != 1) {
