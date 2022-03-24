@@ -213,7 +213,7 @@ class Arr
      *
      * @return array
      */
-    public function tree($data, $title, $fieldPri = 'cid', $fieldPid = 'pid',$html_str = '&nbsp;&nbsp;&nbsp;&nbsp;')
+    public function tree($data, $title, $fieldPri = 'cid', $fieldPid = 'pid',$html_str = '&nbsp;&nbsp;&nbsp;&nbsp;',$max_level = 99999)
     {
         if (count($data) == 0) {
             return collect();
@@ -221,6 +221,10 @@ class Arr
         $arr = $this->channelList($data, 0, '', $fieldPri, $fieldPid);
         foreach ($arr as $k => $v) {
             $str = "";
+            if ($v['_level'] > $max_level){
+                unset($arr[$k]);
+                continue;
+            }
             if ($v['_level'] > 2) {
                 for ($i = 1; $i < $v['_level'] - 1; $i++) {
                     $str .= "│".$html_str;
