@@ -91,7 +91,7 @@ class Arr
         $html = "&nbsp;",
         $fieldPri = 'cid',
         $fieldPid = 'pid',
-        $level = 1,
+        $level = 1
     ) {
         $pid = is_array($pid) ? $pid : [$pid];
         $data = [];
