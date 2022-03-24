@@ -91,7 +91,7 @@ class Arr
         $html = "&nbsp;",
         $fieldPri = 'cid',
         $fieldPid = 'pid',
-        $level = 1
+        $level = 1,
     ) {
         $pid = is_array($pid) ? $pid : [$pid];
         $data = [];
@@ -213,12 +213,12 @@ class Arr
      *
      * @return array
      */
-    public function tree($data, $title, $fieldPri = 'cid', $fieldPid = 'pid')
+    public function tree($data, $title, $fieldPri = 'cid', $fieldPid = 'pid',$html_str = '&nbsp;&nbsp;&nbsp;&nbsp;')
     {
         if (count($data) == 0) {
             return collect();
         }
-        $arr = $this->channelList($data, 0, '', $fieldPri, $fieldPid,$html_str = '&nbsp;&nbsp;&nbsp;&nbsp;');
+        $arr = $this->channelList($data, 0, '', $fieldPri, $fieldPid);
         foreach ($arr as $k => $v) {
             $str = "";
             if ($v['_level'] > 2) {
